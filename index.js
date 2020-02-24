@@ -31,6 +31,8 @@ bot.context.db = { lockedUsers: [] };
 
 bot.catch(e => console.log(e));
 
+console.log("ExoBot gonna rock your world!\n");
+
 commandHandler(bot);
 
 // Text Handler must be last updates handler !
