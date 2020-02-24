@@ -34,6 +34,9 @@ const groupChat = async ctx => {
   
   
   if (ctx.message.reply_to_message) {
+    
+    console.log(ctx.chat_id);    
+    
     let text = ctx.message.text;
     if (parseFloat(text.match(reDot)) || parseFloat(text.match(reComma))) {
       text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
