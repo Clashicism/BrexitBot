@@ -12,7 +12,7 @@ module.exports.textHandler = async bot => {
 
 // Default answer to unknown messages
 const privateChat = ctx => {
-  ctx.reply(`Hello ${ctx.from.first_name} this is CyFrog tip bot.\nSee /help for more info.`,
+  ctx.reply(`Hello ${ctx.from.first_name} this is Atomic bot.\nSee /help for more info.`,
     Markup.keyboard([["/balance", "/help"],["/deposit", "/withdraw"]]).oneTime().resize().extra()); };
 
 const groupChat = async ctx => {
@@ -24,13 +24,13 @@ const groupChat = async ctx => {
 // console.log(`Yo, ${fromUser.first_name} ${session.wallet.honkPoints}`);
   
   let dice=["🎲","⚀","⚁","⚂","⚃","⚄","⚅"]; 
-  let slot=["🎰","🍒","🍇","🍋","🍊","🔔","🐸"]; 
+  let slot=["🎰","🐸","♻️","🍋","🤡","🌶️","👽"]; 
   let slotResults=["🎰","🎰","🎰"];
   /// Listen for Tip Message from Group Chat  // RegEx "[number] cy";  // Example: "10 cy" , " 10cy" , "10 CyFrog";
-  const re = /[0-9]+ *cyfrog/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;  const reDot = /\d*\.?\d* *cyfrog/gi;
+  const re = /[0-9]+ *atom/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *atom/i;  const reDot = /\d*\.?\d* *atom/gi;
   // const re = /rain [0-9]+/gi; 
-  const reSlot = /🎰/g;   const reFaucet = /🚰/g; 
-  const reClown = /🐸/g;  const reCircus = /🦎/g; const reFlower = /🌺/g; const reDice = /🎲/g;
+  const reSlot = /🚀/g;   const reFaucet = /🚰/g; 
+  const reClown = /⚛️/g;  const reCircus = /👽/g; const reFlower = /🤖/g; const reDice = /🎲/g;
   
   
   if (ctx.message.reply_to_message) {
@@ -41,7 +41,7 @@ const groupChat = async ctx => {
     if (parseFloat(text.match(reDot)) || parseFloat(text.match(reComma))) {
       text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
       if (text.includes(".")) {
-        let amount = parseFloat(text.replace(/cyfrog/g, ""));
+        let amount = parseFloat(text.replace(/atom/g, ""));
         const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
       else if (text.includes(",")) {
         let amount = text.replace(/,/g, ""); const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
@@ -70,12 +70,12 @@ const groupChat = async ctx => {
           if((slotResults[0]==slotResults[1])||(slotResults[1]==slotResults[2])||(slotResults[0]==slotResults[2])) { ; }
           else { amount=parseInt(amount/3); }      
           amount= amount* 0.01 ;
-          if(diceText=="🍒🍒🍒") { amount=0.75; }
-          if(diceText=="🍇🍇🍇") { amount=0.20; }
-          if(diceText=="🍋🍋🍋") { amount=0.30; }
-          if(diceText=="🍊🍊🍊") { amount=0.40; }
-          if(diceText=="🔔🔔🔔") { amount=0.50; }
-          if(diceText=="🐸🐸🐸") { amount=1.00; }
+          if(diceText=="🐸🐸🐸") { amount=0.75; }
+          if(diceText=="♻️♻️♻️") { amount=0.50; }
+          if(diceText=="🍋🍋🍋") { amount=0.50; }
+          if(diceText=="🤡🤡🤡") { amount=0.50; }
+          if(diceText=="🌶️🌶️🌶️") { amount=0.50; }
+          if(diceText=="👽👽👽") { amount=1.00; }
         }
       
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
@@ -100,7 +100,7 @@ const tip = async (ctx, amount) => {
   if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id); toggleLock(ctx, fromUser.id);
   let msg = "";
   if (transactionSuccess) {
-    msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString("en-US")} 🐸*CyFrog*🐸 to *${toUser.first_name}*`; }
+    msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString("en-US")} ⚛️ Atom ⚛️ to *${toUser.first_name}*`; }
   else {
-    console.log("Need more CyFrog"); msg += `*${fromUser.first_name}* you need more 🐸*CyFrog*🐸`; } 
+    console.log("Need more Atom"); msg += `*${fromUser.first_name}* you need more ⚛️ Atom ⚛️`; } 
   return msg; };
