@@ -54,11 +54,11 @@ const start = async ctx => {
 
 const help = ctx => {
   helpMsg = `
-🐸*CyFrog HELP PAGE*🐸\n
+⚛️ Atomic Help Page ⚛️\n
 
-To tip just type a number and cyfrog 
-eg. "0.01 cyfrog" when replying to a message 
-or 🐸=0.01 or 🎲=0.01x1-6 or 🌺=0.10 or 🦎=1
+To tip just type a number and atom 
+eg. "0.01 atom" when replying to a message 
+or ⚛️=0.01 or 🎲=0.01x1-6 or 🤖=0.10 or 👽=1
 
 What can I help you with? 
 
@@ -67,9 +67,9 @@ Here are a list of my commands:
 Type:
 
 /deposit - for information on depositing 
-/help - for information on tipping *CyFrog* 
-/withdraw - withdrawing *CyFrog*  
-/balance - get your *CyFrog* balance
+/help - for information on tipping ⚛️ Atom ⚛️ 
+/withdraw - withdrawing ⚛️ Atom ⚛️  
+/balance - get your ⚛️ Atomic ⚛️ balance
 
 If you need further assistance, please contact @dreamtrove
 `
