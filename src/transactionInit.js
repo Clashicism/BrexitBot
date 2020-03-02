@@ -59,7 +59,7 @@ const pushTransaction = async (amount, ctx, toUserSession) => {
     await saveSession(toUserSession.from.id, toUserSession);
 
     console.log(
-      `${ctx.from.first_name} tipped ${amount} CyFrog to ${toUserSession.from.first_name}`
+      `${ctx.from.first_name} tipped ${amount} Atom to ${toUserSession.from.first_name}`
     );
     return true;
   } else {
