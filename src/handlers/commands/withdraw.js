@@ -118,8 +118,8 @@ const withdrawValidation = async (ctx, session, amount, destSLPaddr) => {
     if (tokenBalance < amount) {
       // Escrow wallet doesn't have enough CyFrog tokens to make transaction
       let warnMsg =
-        "ALERT! Escrow wallet doesn't have enough CyFrog tokens to make transaction";
-      warnMsg += `\nEscrow balance: ${tokenBalance} CyFrog; Amount: ${amount}`;
+        "ALERT! Escrow wallet doesn't have enough Salient tokens to make transaction";
+      warnMsg += `\nEscrow balance: ${tokenBalance} Salient; Amount: ${amount}`;
       admin.alert(ctx, warnMsg);
       console.log(warnMsg);
       return `Sorry! We currently can't process this transaction. Please try later.`;
