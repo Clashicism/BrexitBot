@@ -24,7 +24,8 @@ const groupChat = async ctx => {
 // console.log(`Yo, ${fromUser.first_name} ${session.wallet.honkPoints}`);
   
   let dice=["🎲","⚀","⚁","⚂","⚃","⚄","⚅"]; 
-  let slot=["🎰","🐸","♻️","🍋","🤡","🌶️","👽"]; 
+   let slot=["🎰","🍒","🍇","🍋","🍊","🔔","👽"]; 
+//  let slot=["🎰","🐸","♻️","🍋","🤡","🌶️","👽"]; 
   let slotResults=["🎰","🎰","🎰"];
   /// Listen for Tip Message from Group Chat  // RegEx "[number] cy";  // Example: "10 cy" , " 10cy" , "10 CyFrog";
   const re = /[0-9]+ *atom/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *atom/i;  const reDot = /\d*\.?\d* *atom/gi;
@@ -70,13 +71,14 @@ const groupChat = async ctx => {
           if((slotResults[0]==slotResults[1])||(slotResults[1]==slotResults[2])||(slotResults[0]==slotResults[2])) { ; }
           else { amount=parseInt(amount/3); }      
           amount= amount* 0.01 ;
-          if(diceText=="🐸🐸🐸") { amount=0.75; }
-          if(diceText=="♻️♻️♻️") { amount=0.50; }
+          if(diceText=="🍒🍒🍒") { amount=0.75; }
+          if(diceText=="🍇") { amount=0.50; }
           if(diceText=="🍋🍋🍋") { amount=0.50; }
-          if(diceText=="🤡🤡🤡") { amount=0.50; }
-          if(diceText=="🌶️🌶️🌶️") { amount=0.50; }
+          if(diceText=="🍊🍊🍊") { amount=0.50; }
+          if(diceText=="🔔🔔🔔") { amount=0.50; }
           if(diceText=="👽👽👽") { amount=1.00; }
         }
+//   let slot=["🎰","🍒","🍇","🍋","🍊","🔔","👽"]; 
       
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
 
@@ -100,7 +102,7 @@ const tip = async (ctx, amount) => {
   if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id); toggleLock(ctx, fromUser.id);
   let msg = "";
   if (transactionSuccess) {
-    msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString("en-US")} ⚛️ Atom ⚛️ to *${toUser.first_name}*`; }
+    msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString("en-US")} ⚛️ Salient ⚛️ to *${toUser.first_name}*`; }
   else {
-    console.log("Need more Atom"); msg += `*${fromUser.first_name}* you need more ⚛️ Atom ⚛️`; } 
+    console.log("Need more Atom"); msg += `*${fromUser.first_name}* you need more ⚛️ Salient ⚛️`; } 
   return msg; };
