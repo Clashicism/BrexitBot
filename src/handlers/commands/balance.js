@@ -10,7 +10,7 @@ module.exports.balance = async ctx => {
   const honkPoints = session.wallet.honkPoints;
 
   ctx.replyWithMarkdown(
-    `*${ctx.from.first_name}* your balance: *${honkPoints.toLocaleString('en-US')}* ⚛️ Atom ⚛️`,
+    `*${ctx.from.first_name}* your balance: *${honkPoints.toLocaleString('en-US')}* ⚛️ Salient ⚛️`,
     Markup.keyboard([["/balance", "/help"], ["/deposit", "/withdraw"]])
       .oneTime()
       .resize()
