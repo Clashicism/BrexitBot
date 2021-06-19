@@ -12,7 +12,7 @@ module.exports.textHandler = async bot => {
 
 // Default answer to unknown messages
 const privateChat = ctx => {
-  ctx.reply(`Hello ${ctx.from.first_name} this is Atomic bot.\nSee /help for more info.`,
+  ctx.reply(`Hello ${ctx.from.first_name} I am Eve.\nSee /help for more info.`,
     Markup.keyboard([["/balance", "/help"],["/deposit", "/withdraw"]]).oneTime().resize().extra()); };
 
 const groupChat = async ctx => {
@@ -42,7 +42,7 @@ const groupChat = async ctx => {
     if (parseFloat(text.match(reDot)) || parseFloat(text.match(reComma))) {
       text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
       if (text.includes(".")) {
-        let amount = parseFloat(text.replace(/atom/g, ""));
+        let amount = parseFloat(text.replace(/salient/g, ""));
         const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
       else if (text.includes(",")) {
         let amount = text.replace(/,/g, ""); const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
