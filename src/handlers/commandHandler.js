@@ -54,10 +54,10 @@ const start = async ctx => {
 
 const help = ctx => {
   helpMsg = `
-⚛️ Atomic Help Page ⚛️\n
+⚛️ Eve Help Page ⚛️\n
 
-To tip just type a number and atom 
-eg. "0.01 atom" when replying to a message 
+To tip just type a number and salient 
+eg. "0.01 salient" when replying to a message 
 or ⚛️=0.01 or 🎲=0.01x1-6 or 🤖=0.10 or 👽=1
 
 What can I help you with? 
@@ -67,9 +67,9 @@ Here are a list of my commands:
 Type:
 
 /deposit - for information on depositing 
-/help - for information on tipping ⚛️ Atom ⚛️ 
-/withdraw - withdrawing ⚛️ Atom ⚛️  
-/balance - get your ⚛️ Atomic ⚛️ balance
+/help - for information on tipping ⚛️ salient ⚛️ 
+/withdraw - withdrawing ⚛️ salient ⚛️  
+/balance - get your ⚛️ salient ⚛️ balance
 
 If you need further assistance, please contact @dreamtrove
 `
